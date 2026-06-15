@@ -8,10 +8,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3002'],
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 
 // Rate limiting
@@ -35,7 +32,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'Contract Scanner API is running 🚀' });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
